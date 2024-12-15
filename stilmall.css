@@ -1,0 +1,298 @@
+/* Grundläggande styling för hela sidan */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-weight: bold;
+    min-height: 100vh; /* Säkerställer att footern alltid syns längst ner */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bakgrundsvideo */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Placera bakom allt innehåll */
+    overflow: hidden;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover; /* Täck hela skärmen */
+    filter: brightness(0.5); /* Gör bakgrunden mörkare */
+}
+
+/* Navigationsmeny */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: linear-gradient(90deg, #0f1c2f, #320a42, #9b10c5, #000000);
+    background-size: 400% 400%;
+    animation: gradientHeader 8s ease infinite;
+    padding: 10px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+header .menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row; /* Mobile-first: horisontell meny */
+    gap: 10px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+header .menu li {
+    margin: 0 15px;
+}
+
+header .menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .menu a:hover {
+    color: #00b5ff;
+}
+
+@keyframes gradientHeader {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Hero, Om Mig och Projektsidor */
+.hero, .projects, .om-mig, .kontakta-mig {
+    text-align: center;
+    padding: 20px 15px;
+    flex: 1; /* Gör att innehållet fyller sidan */
+}
+
+.hero h1, .projects-title, .om-mig h1 {
+    font-size: 24px;
+    color: #00f3ff;
+    text-shadow: 0 0 10px #00f3ff;
+}
+
+.hero img, .om-mig img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #00f3ff;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.projects .project-container {
+    display: flex;
+    flex-direction: column; /* Mobile layout */
+    gap: 20px;
+    align-items: center;
+}
+
+/* Projektkort */
+.project-card {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(31, 31, 31, 1), rgba(50, 10, 66, 1), rgba(155, 16, 197, 1));
+    background-size: 300% 300%;
+    animation: cardGradient 6s ease infinite;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: #121212;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: #00f3ff;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.project-card a:hover {
+    background: #ffffff;
+    color: #00f3ff;
+}
+
+@keyframes cardGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Länk med klassen "btn" */
+a.btn {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #00f3ff;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.5);
+    transition: all 0.3s ease;
+    text-align: center;
+    margin: 20px auto;
+}
+
+a.btn:hover {
+    background-color: #ffffff;
+    color: #00f3ff;
+    transform: translateY(-5px);
+}
+
+/* Kontakta Mig */
+.kontakta-mig {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(3, 12, 44, 0.8), rgba(90, 9, 86, 0.8));
+    border-radius: 15px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column; /* Mobil layout */
+    gap: 15px;
+    align-items: center;
+}
+
+.contact-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #00f3ff;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: #00f3ff;
+    color: #121212;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: #1f1f1f;
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+    color: #bbbbbb;
+    margin-top: auto; /* Pushar footern längst ner */
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .projects .project-container {
+        flex-direction: row; /* Horisontell layout för större skärmar */
+        flex-wrap: wrap; /* Radbryt om det behövs */
+        justify-content: center; /* Centrera projekten horisontellt */
+        gap: 30px; /* Mellanrum mellan korten */
+    }
+
+    .project-card {
+        flex: 0 0 300px; /* Sätt en fast bredd för korten */
+        margin: 10px; /* Extra mellanrum för estetik */
+    }
+
+    header .menu {
+        justify-content: space-around; /* Dynamiskt mellanrum mellan länkar */
+        padding: 10px 50px; /* Extra padding för att göra menyn större */
+        gap: calc(2vw); /* Dynamiskt mellanrum baserat på sidbredden */
+    }
+
+    header .menu li {
+        margin: 0; /* Justera margin för jämnare layout */
+    }
+
+    header .menu a {
+        font-size: calc(16px + 0.5vw); /* Dynamisk textstorlek baserat på sidstorlek */
+        padding: 10px 20px; /* Ökar klickytan */
+        transition: all 0.3s ease; /* Smooth övergång för storlek och placering */
+    }
+
+    /* Gör menyn större */
+    header {
+        padding: 20px; /* Ökar avståndet runt menyn */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Lägg till lite skugga för effekt */
+    }
+     /* Kontaktuppgifter */
+     .kontakta-mig {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px 50px;
+        font-size: 18px; /* Samma textstorlek som länkar */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .kontakta-mig .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .kontakta-mig .contact-item {
+        padding: 15px 30px;
+        font-size: 18px; /* Samma textstorlek som länkar */
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid #00f3ff;
+        text-align: center;
+        flex: 1;
+        transition: all 0.3s ease;
+    }
+
+    .kontakta-mig .contact-item:hover {
+        background: #00f3ff;
+        color: #121212;
+        transform: scale(1.05);
+    }
+}

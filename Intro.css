@@ -1,0 +1,91 @@
+/* Grundläggande styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; 
+    overflow: hidden;
+    transition: background-color 1s ease-in-out; 
+}
+
+/* Bakgrundsvideo styling */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5); /* Gör videon mörkare */
+}
+
+/* Intro-container styling */
+.intro-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.intro-container h1 {
+    font-size: 40px;
+    margin-top: 20px;
+    color: #00f3ff;
+    text-shadow: 0 0 15px #00f3ff;
+    opacity: 0;
+    animation: fadeInText 3s ease-in-out forwards 1s;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #00f3ff;
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.5);
+    animation: scaleIn 2s ease-in-out;
+}
+
+/* Animationer */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body.fade-out {
+    opacity: 0; /* Fade-out på hela sidan */
+    transition: opacity 1s ease-in-out;
+}

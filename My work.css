@@ -1,0 +1,199 @@
+/* Grundläggande styling för hela sidan */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Placera bakom allt annat innehåll */
+    overflow: hidden; /* Klipp bort allt som är utanför */
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Täck hela skärmen utan att förvränga videon */
+    filter: brightness(0.4); /* Mörka ner videon något för bättre kontrast */
+}
+
+/* Navigationsmeny */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: linear-gradient(90deg, #0f1c2f, #320a42, #9b10c5, #000000);
+    background-size: 400% 400%; /* Gör gradienten större än headern */
+    animation: gradientHeader 8s ease infinite; /* Animerar gradienten */
+    color: white;
+    padding: 20px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Lägg till en liten skugga */
+}
+
+@keyframes gradientHeader {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header .menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+header .menu li {
+    margin: 0 15px;
+}
+
+header .menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .menu a:hover {
+    color: #00b5ff; /* Ändrar färg vid hover */
+}
+
+/* Rubrik för projektsidan */
+.projects-title {
+    text-align: center;
+    font-size: 36px;
+    color: #00f3ff;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #00f3ff;
+}
+
+/* Projektsidan */
+.projects {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-container {
+    display: flex; /* Gör att korten visas horisontellt */
+    justify-content: center; /* Centrerar korten */
+    gap: 20px; /* Mellanrum mellan korten */
+    flex-wrap: wrap; /* Gör att korten radbryts om det behövs */
+}
+
+.project-card {
+    flex: 0 0 300px; /* Sätter bredden på korten */
+    border-radius: 10px; /* Rundade hörn */
+    padding: 20px; /* Ger utrymme inuti kortet */
+    text-align: center; /* Centrerar texten */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth övergång för hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Standard skugga */
+
+    /* Animerad gradientbakgrund */
+    background: linear-gradient(135deg, rgba(31, 31, 31, 1), rgba(50, 10, 66, 1), rgba(155, 16, 197, 1));
+    background-size: 300% 300%; /* Skapar större gradient för mjuk övergång */
+    animation: cardGradient 6s ease infinite; /* Animerar gradienten */
+}
+
+@keyframes cardGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.project-card h3 {
+    color: #00f3ff;
+    margin: 15px 0;
+}
+
+.project-card p {
+    font-size: 16px;
+    margin: 10% 0;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: #00f3ff;
+    color: #121212;
+    transition: all 0.3s;
+}
+
+.project-card a:hover {
+    background: #ffffff;
+    color: #00f3ff;
+}
+
+/* Hover-effekt på kort */
+.project-card:hover {
+    transform: translateY(-10px); /* Lyft kortet vid hover */
+    box-shadow: 0 10px 20px rgba(0, 243, 255, 0.5); /* Turkos skugga vid hover */
+}
+
+/* Footer */
+footer {
+    background: #1f1f1f; /* Mörk bakgrundsfärg */
+    text-align: center; /* Centrerar texten */
+    padding: 20px; /* Ger utrymme runt texten */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    .project-card {
+        flex: 0 0 90%; /* Gör korten bredare på små skärmar */
+    }
+
+    header .menu {
+        flex-direction: column; /* Gör menyn vertikal */
+    }
+
+    header .menu li {
+        margin: 10px 0;
+    }
+
+
+}
